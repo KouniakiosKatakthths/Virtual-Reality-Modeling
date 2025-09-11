@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://cf6r1qt8a5gvb"]
+
+[ext_resource type="Material" uid="uid://bf6d7rc164mtp" path="res://assets/materials/forest_leaves.tres" id="1_8kf5t"]
+[ext_resource type="PackedScene" uid="uid://b0h3qo7gpftlo" path="res://assets/prefabs/tree_small.tscn" id="2_i4hrn"]
+[ext_resource type="PackedScene" uid="uid://cjqswvq8d22gj" path="res://assets/prefabs/wooden_picnic_table.tscn" id="3_2558k"]
+[ext_resource type="PackedScene" uid="uid://djw5qe8811joq" path="res://assets/prefabs/chess_set.tscn" id="4_s5g2q"]
+[ext_resource type="PackedScene" uid="uid://0j6tvrrc8qjv" path="res://assets/prefabs/boulder.tscn" id="5_bir1m"]
+[ext_resource type="PackedScene" uid="uid://dbswy6l4dtaxa" path="res://assets/prefabs/jacaranda_tree.tscn" id="6_2flfd"]
+[ext_resource type="PackedScene" uid="uid://caes3g2ylnt1d" path="res://assets/prefabs/street_lamp.tscn" id="7_76us5"]
+[ext_resource type="PackedScene" uid="uid://deu2sot3nv5ef" path="res://assets/prefabs/bush_1.tscn" id="8_shctb"]
+[ext_resource type="PackedScene" uid="uid://notb5fagb53n" path="res://assets/prefabs/bush_2.tscn" id="9_bpm3q"]
+[ext_resource type="PackedScene" uid="uid://digony0hqibbb" path="res://assets/prefabs/bush_3.tscn" id="10_pnlpj"]
+[ext_resource type="PackedScene" uid="uid://cwui6ala5v4o1" path="res://assets/prefabs/camera.tscn" id="11_pnlpj"]
+[ext_resource type="PackedScene" uid="uid://b1thamftxreoa" path="res://assets/prefabs/utility_box.tscn" id="12_oxok2"]
+[ext_resource type="Texture2D" uid="uid://ysa1iv8ly4yt" path="res://assets/textures/sky.exr" id="13_7bd4x"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2f3xt"]
+panorama = ExtResource("13_7bd4x")
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_oxok2"]
+sky_material = SubResource("PanoramaSkyMaterial_2f3xt")
+
+[sub_resource type="Environment" id="Environment_oxok2"]
+background_mode = 2
+sky = SubResource("Sky_oxok2")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(0.645592, 0, 0, 0, 0.645592, 0, 0, 0, 0.645592, -4.4612, 0, 0.921164)
+size = Vector3(30, 0.25, 23.1343)
+material = ExtResource("1_8kf5t")
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="tree_small_02_4k" parent="Env" instance=ExtResource("2_i4hrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.16005, -0.171674, 1.77165)
+
+[node name="wooden_picnic_table_4k" parent="Env" instance=ExtResource("3_2558k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.472858, 0, 1.24575)
+
+[node name="chess_set_4k" parent="Env" instance=ExtResource("4_s5g2q")]
+transform = Transform3D(-0.237245, 0, 0.97145, 0, 1, 0, -0.97145, 0, -0.237245, -0.522315, 0.733269, 0.697902)
+
+[node name="jacaranda_tree_4k" parent="Env" instance=ExtResource("6_2flfd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00704, 0, -2.56811)
+
+[node name="Rocks" type="Node3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52719, 0, 0)
+
+[node name="boulder_01_4k" parent="Env/Rocks" instance=ExtResource("5_bir1m")]
+transform = Transform3D(0.447525, 0, 0.894271, 0, 1, 0, -0.894271, 0, 0.447525, 0.591895, 0, 1.21708)
+
+[node name="boulder_01_4k2" parent="Env/Rocks" instance=ExtResource("5_bir1m")]
+transform = Transform3D(-0.599443, 0, 0.800418, 0, 1, 0, -0.800418, 0, -0.599443, 1.17913, 0, 2.78813)
+
+[node name="boulder_01_4k3" parent="Env/Rocks" instance=ExtResource("5_bir1m")]
+transform = Transform3D(-0.143959, 0, 0.989584, 0, 1, 0, -0.989584, 0, -0.143959, -10.1646, 4.76837e-07, -1.4804)
+
+[node name="Lamps" type="Node3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52719, 0, 0)
+
+[node name="street_lamp_01_4k" parent="Env/Lamps" instance=ExtResource("7_76us5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91828, 0, 4.17615)
+
+[node name="street_lamp_01_4k2" parent="Env/Lamps" instance=ExtResource("7_76us5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.63144, 0, 4.46341)
+
+[node name="Bushes" type="Node3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52719, 0, 0)
+
+[node name="Bush1" parent="Env/Bushes" instance=ExtResource("8_shctb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44993, 2.38419e-07, 5.18635)
+
+[node name="Bush2" parent="Env/Bushes" instance=ExtResource("9_bpm3q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.066256, -1.19209e-07, 2.5919)
+
+[node name="Bush3" parent="Env/Bushes" instance=ExtResource("10_pnlpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96653, 0, 3.74269)
+
+[node name="Bush4" parent="Env/Bushes" instance=ExtResource("10_pnlpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88694, 0, 4.49352)
+
+[node name="Bush5" parent="Env/Bushes" instance=ExtResource("9_bpm3q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1747, 4.76837e-07, -0.663424)
+
+[node name="Bush6" parent="Env/Bushes" instance=ExtResource("10_pnlpj")]
+transform = Transform3D(0.778878, 0, 0.627175, 0, 1, 0, -0.627175, 0, 0.778878, -11.092, 0, 4.04476)
+
+[node name="tree_small_02_4k2" parent="Env" instance=ExtResource("2_i4hrn")]
+transform = Transform3D(0.553043, 0, -0.833153, 0, 1, 0, 0.833153, 0, 0.553043, -8.63288, -0.343348, -1.92546)
+
+[node name="Camera_01_4k" parent="Env" instance=ExtResource("11_pnlpj")]
+transform = Transform3D(0.366274, 0, 0.930507, 0, 1, 0, -0.930507, 0, 0.366274, -0.85643, 0.750885, 1.64858)
+
+[node name="utility_box_02_4k" parent="Env" instance=ExtResource("12_oxok2")]
+transform = Transform3D(-0.998558, 0, -0.053678, 0, 1, 0, 0.053678, 0, -0.998558, -7.83447, 0, 4.38372)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.735073, -0.178307, 0.65412, 0.0799292, 0.98086, 0.177552, -0.673259, -0.0782305, 0.735256, 0, 0, 0)
+light_color = Color(1, 0.73173, 0.0963542, 1)
+light_energy = 0.845
+light_indirect_energy = 3.951
+light_volumetric_fog_energy = 2.243
+light_specular = 0.689
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.256795, 0, 0.966466, 0, 1, 0, -0.966466, 0, -0.256795, 5.12554, 2.86201, -0.510391)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oxok2")

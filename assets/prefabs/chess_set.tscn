@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://djw5qe8811joq"]
+
+[ext_resource type="PackedScene" uid="uid://cy8jdcelca27v" path="res://assets/models/chess_set_4k.gltf" id="1_lr053"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0lpfk"]
+size = Vector3(0.557281, 0.116943, 0.551819)
+
+[node name="chess_set_4k" instance=ExtResource("1_lr053")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="33"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(0.995349, 0, 0, 0, 0.995349, 0, 0, 0, 0.995349, -1.52588e-05, 0.0567182, 0.00546306)
+shape = SubResource("BoxShape3D_0lpfk")

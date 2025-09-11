@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://0j6tvrrc8qjv"]
+
+[ext_resource type="PackedScene" uid="uid://bxyum7t1l12sm" path="res://assets/models/boulder_01_4k.gltf" id="1_jlcx5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jlcx5"]
+size = Vector3(1.28235, 1.008, 1.84003)
+
+[node name="boulder_01_4k" instance=ExtResource("1_jlcx5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106227, 0.434104, -0.0420227)
+shape = SubResource("BoxShape3D_jlcx5")
