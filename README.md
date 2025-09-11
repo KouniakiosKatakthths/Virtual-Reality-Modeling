@@ -8,7 +8,7 @@ The Brance *lab-1* is used for the first exercise.
 
 
 #### Resource List 
-* [Poly Haven](https://polyhaven.com/)
+* Poly Haven
     * [Boombox](https://polyhaven.com/a/boombox)
     * [Boulder 01](https://polyhaven.com/a/boulder_01)
     * [Camera 01](https://polyhaven.com/a/Camera_01)
