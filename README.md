@@ -4,7 +4,7 @@ For the VRM laboratory the godot game engine is been used. For uploading large f
 ## Lab 1
 The Brance *lab-1* is used for the first exercise.
 
-![asd](/preview.png "This is an image from the sceen")
+![Enviroment Screenshot](/preview.png "Screenshot of the enviroment")
 
 
 #### Resource List 
