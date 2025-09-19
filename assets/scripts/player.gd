@@ -3,9 +3,11 @@ extends CharacterBody3D
 # Head obj ref
 @onready var head = $Head;
 
-@export var mouse_sens = 0.4;
+@export var mouse_sens = 0.25;
 @export var walking_speed = 5.0;
 @export var sprinting_speed = 8.0;
+@export var sneaking_speed = 1.7;
+@export var sneaking_depth = -0.5;
 @export var jump_velocity = 4.5;
 
 var lerp_speed = 10.0;
@@ -28,8 +30,18 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	# Set the player speed to running if the running input is active
-	current_speed = sprinting_speed if Input.is_action_pressed("sprint") else walking_speed;
+	# Set the speed of the player depending on the selected action
+	if Input.is_action_pressed("sneak"):
+		current_speed = sneaking_speed;
+		# Depress the position of the head in a smooth linear way
+		head.position.y = lerp(head.position.y, 1.7 + sneaking_depth, delta * lerp_speed);
+	else:
+		# Restore head position in a linear way
+		head.position.y = lerp(head.position.y, 1.7, delta * lerp_speed);;
+		if Input.is_action_pressed("sprint"):
+			current_speed = sprinting_speed;
+		else:
+			current_speed = walking_speed;
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -47,7 +59,6 @@ func _physics_process(delta: float) -> void:
 		(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(),
 		delta * lerp_speed
 	);
-	
 	
 	if direction:
 		velocity.x = direction.x * current_speed
