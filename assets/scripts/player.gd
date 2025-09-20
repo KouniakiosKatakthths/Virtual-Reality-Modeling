@@ -3,6 +3,12 @@ extends CharacterBody3D
 # Head obj ref
 @onready var head = $Head;
 
+# Standing collitions refs
+@onready var standing_collition = $standing_collition;
+@onready var sneak_collition = $sneak_collition;
+# Raycast for detectiong if the player can stand up
+@onready var standing_raycast = $RayCast3D;
+
 @export var mouse_sens = 0.25;
 @export var walking_speed = 5.0;
 @export var sprinting_speed = 8.0;
@@ -30,18 +36,8 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	# Set the speed of the player depending on the selected action
-	if Input.is_action_pressed("sneak"):
-		current_speed = sneaking_speed;
-		# Depress the position of the head in a smooth linear way
-		head.position.y = lerp(head.position.y, 1.7 + sneaking_depth, delta * lerp_speed);
-	else:
-		# Restore head position in a linear way
-		head.position.y = lerp(head.position.y, 1.7, delta * lerp_speed);;
-		if Input.is_action_pressed("sprint"):
-			current_speed = sprinting_speed;
-		else:
-			current_speed = walking_speed;
+	# Update player speed
+	handle_movement_state(delta);
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -68,3 +64,25 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 
 	move_and_slide()
+
+func handle_movement_state(delta: float):
+	# Set the speed of the player depending on the selected action
+	if Input.is_action_pressed("sneak"):
+		current_speed = sneaking_speed;
+		# Depress the position of the head in a smooth linear way
+		head.position.y = lerp(head.position.y, 1.7 + sneaking_depth, delta * lerp_speed);
+		# Enable sneak collition and disable standing collition
+		standing_collition.disabled = true;
+		sneak_collition.disabled = false;
+	elif !standing_raycast.is_colliding():			# Entity can stand up
+		# Restore head position in a linear way
+		head.position.y = lerp(head.position.y, 1.7, delta * lerp_speed);;
+		
+		# Enable standing collition and sneak standing collition
+		standing_collition.disabled = false;
+		sneak_collition.disabled = true;
+		
+		if Input.is_action_pressed("sprint"):
+			current_speed = sprinting_speed;
+		else:
+			current_speed = walking_speed;	

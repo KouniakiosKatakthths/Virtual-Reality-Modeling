@@ -86,7 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44993, 2.38419e-07, 5.1863
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.066256, -1.19209e-07, 2.5919)
 
 [node name="Bush3" parent="Env/Bushes" instance=ExtResource("10_pnlpj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96653, 0, 3.74269)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97933, -4.76837e-07, 3.36563)
 
 [node name="Bush4" parent="Env/Bushes" instance=ExtResource("10_pnlpj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.88694, 0, 4.49352)
