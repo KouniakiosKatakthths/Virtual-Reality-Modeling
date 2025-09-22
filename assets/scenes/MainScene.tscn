@@ -101,7 +101,7 @@ transform = Transform3D(0.778878, 0, 0.627175, 0, 1, 0, -0.627175, 0, 0.778878, 
 transform = Transform3D(0.553043, 0, -0.833153, 0, 1, 0, 0.833153, 0, 0.553043, -8.63288, -0.343348, -1.92546)
 
 [node name="Camera_01_4k" parent="Env" instance=ExtResource("11_pnlpj")]
-transform = Transform3D(0.366274, 0, 0.930507, 0, 1, 0, -0.930507, 0, 0.366274, -0.85643, 0.750885, 1.64858)
+transform = Transform3D(0.366274, 0, 0.930507, 0, 1, 0, -0.930507, 0, 0.366274, -0.812567, 0.795895, 1.77599)
 
 [node name="utility_box_02_4k" parent="Env" instance=ExtResource("12_oxok2")]
 transform = Transform3D(-0.998558, 0, -0.053678, 0, 1, 0, 0.053678, 0, -0.998558, -7.83447, 0, 4.38372)
