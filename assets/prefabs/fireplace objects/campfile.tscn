@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnwhfwyhax351"]
+
+[ext_resource type="PackedScene" uid="uid://0j6tvrrc8qjv" path="res://assets/prefabs/boulder.tscn" id="1_icf3s"]
+[ext_resource type="Script" uid="uid://db0lhlahtk4ue" path="res://assets/scripts/campfile.gd" id="1_ofd5t"]
+[ext_resource type="PackedScene" uid="uid://cte1t8m17y6qt" path="res://assets/interactions/interaction_area.tscn" id="2_a555k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a555k"]
+size = Vector3(3, 1, 3)
+
+[node name="Campfile" type="Node3D"]
+script = ExtResource("1_ofd5t")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_a555k")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23639, 0.155853)
+shape = SubResource("BoxShape3D_a555k")
+
+[node name="boulders" type="Node3D" parent="."]
+
+[node name="boulder_01_4k" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(0.220685, 0, -0.30445, 0, 0.376021, 0, 0.30445, 0, 0.220685, 0.317443, 0.00121822, 0.912894)
+
+[node name="boulder_01_4k4" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(0.264999, 0, -0.266772, 0, 0.376021, 0, 0.266772, 0, 0.264999, 0.752697, 0.0150755, 0.58942)
+
+[node name="boulder_01_4k8" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(0.374563, 0, -0.0330731, 0, 0.376021, 0, 0.0330731, 0, 0.374563, 0.936661, 0.0112134, 0.123642)
+
+[node name="boulder_01_4k2" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(-0.166174, 0, -0.337309, 0, 0.376021, 0, 0.337309, 0, -0.166174, -0.216523, 0.00121822, 0.904198)
+
+[node name="boulder_01_4k3" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(-0.30625, 0, -0.21818, 0, 0.376021, 0, 0.21818, 0, -0.30625, -0.721482, 0.00121822, 0.613481)
+
+[node name="boulder_01_4k5" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(-0.370801, 0, 0.0624367, 0, 0.376021, 0, -0.0624367, 0, -0.370801, -0.949435, 0.00121822, 0.080566)
+
+[node name="boulder_01_4k9" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(-0.314806, 0, -0.205642, 0, 0.376021, 0, 0.205642, 0, -0.314806, 0.796349, 0.00121838, -0.457365)
+
+[node name="boulder_01_4k6" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(-0.283252, 0, 0.247305, 0, 0.376021, 0, -0.247305, 0, -0.283252, -0.694483, 0.00121822, -0.509078)
+
+[node name="boulder_01_4k7" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(-0.0158248, 0, 0.375688, 0, 0.376021, 0, -0.375688, 0, -0.0158248, -0.269186, 0.00121822, -0.891494)
+
+[node name="boulder_01_4k10" parent="boulders" instance=ExtResource("1_icf3s")]
+transform = Transform3D(0.081879, 0, 0.366998, 0, 0.376021, 0, -0.366998, 0, 0.081879, 0.348269, 0.00121822, -0.924827)

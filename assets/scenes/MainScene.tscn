@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cf6r1qt8a5gvb"]
+[gd_scene load_steps=23 format=3 uid="uid://cf6r1qt8a5gvb"]
 
 [ext_resource type="Material" uid="uid://bf6d7rc164mtp" path="res://assets/materials/forest_leaves.tres" id="1_8kf5t"]
 [ext_resource type="PackedScene" uid="uid://b0h3qo7gpftlo" path="res://assets/prefabs/tree_small.tscn" id="2_i4hrn"]
@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://b1thamftxreoa" path="res://assets/prefabs/utility_box.tscn" id="12_oxok2"]
 [ext_resource type="Texture2D" uid="uid://ysa1iv8ly4yt" path="res://assets/textures/sky.exr" id="13_7bd4x"]
 [ext_resource type="PackedScene" uid="uid://vt7sbe7nulh7" path="res://assets/prefabs/player.tscn" id="14_2f3xt"]
+[ext_resource type="PackedScene" uid="uid://kvfk1knqg0wp" path="res://assets/prefabs/fireplace objects/barrel.tscn" id="15_fi8wr"]
+[ext_resource type="PackedScene" uid="uid://bnwhfwyhax351" path="res://assets/prefabs/fireplace objects/campfile.tscn" id="16_jg3iy"]
+[ext_resource type="PackedScene" uid="uid://djle2uevomjwl" path="res://assets/prefabs/fireplace objects/log_2.tscn" id="17_bfd7l"]
+[ext_resource type="PackedScene" uid="uid://b3wtx7fhwqkiq" path="res://assets/prefabs/fireplace objects/log_1.tscn" id="17_en6gj"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2f3xt"]
 data = PackedVector3Array(-15, -0.125, 11.5672, -15, -0.125, -11.5672, -15, 0.125, -11.5672, 15, -0.125, -11.5672, -15, -0.125, -11.5672, -15, -0.125, 11.5672, -15, 0.125, -11.5672, -15, -0.125, -11.5672, 15, -0.125, -11.5672, -15, 0.125, -11.5672, -15, 0.125, 11.5672, -15, -0.125, 11.5672, -15, -0.125, 11.5672, -15, 0.125, 11.5672, 15, 0.125, 11.5672, 15, 0.125, 11.5672, -15, 0.125, 11.5672, -15, 0.125, -11.5672, -15, -0.125, 11.5672, 15, -0.125, 11.5672, 15, -0.125, -11.5672, 15, 0.125, 11.5672, 15, -0.125, 11.5672, -15, -0.125, 11.5672, 15, -0.125, -11.5672, 15, -0.125, 11.5672, 15, 0.125, 11.5672, 15, -0.125, -11.5672, 15, 0.125, -11.5672, -15, 0.125, -11.5672, -15, 0.125, -11.5672, 15, 0.125, -11.5672, 15, 0.125, 11.5672, 15, 0.125, 11.5672, 15, 0.125, -11.5672, 15, -0.125, -11.5672)
@@ -97,6 +101,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1747, 4.76837e-07, -0.663
 [node name="Bush6" parent="Env/Bushes" instance=ExtResource("10_pnlpj")]
 transform = Transform3D(0.778878, 0, 0.627175, 0, 1, 0, -0.627175, 0, 0.778878, -11.092, 0, 4.04476)
 
+[node name="Bush7" parent="Env/Bushes" instance=ExtResource("10_pnlpj")]
+transform = Transform3D(0.213302, 0, 0.976986, 0, 1, 0, -0.976986, 0, 0.213302, -8.67601, -4.76837e-07, -5.05634)
+
 [node name="tree_small_02_4k2" parent="Env" instance=ExtResource("2_i4hrn")]
 transform = Transform3D(0.553043, 0, -0.833153, 0, 1, 0, 0.833153, 0, 0.553043, -8.63288, -0.343348, -1.92546)
 
@@ -105,6 +112,20 @@ transform = Transform3D(0.366274, 0, 0.930507, 0, 1, 0, -0.930507, 0, 0.366274, 
 
 [node name="utility_box_02_4k" parent="Env" instance=ExtResource("12_oxok2")]
 transform = Transform3D(-0.998558, 0, -0.053678, 0, 1, 0, 0.053678, 0, -0.998558, -7.83447, 0, 4.38372)
+
+[node name="Campfire" type="Node3D" parent="."]
+
+[node name="Barrel" parent="Campfire" instance=ExtResource("15_fi8wr")]
+transform = Transform3D(0.92899, 0, 0.370103, 0, 1, 0, -0.370103, 0, 0.92899, -5.55564, 0.0820216, -4.34617)
+
+[node name="Campfile" parent="Campfire" instance=ExtResource("16_jg3iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7365, 0.112525, 5.59811)
+
+[node name="log_2" parent="Campfire" instance=ExtResource("17_bfd7l")]
+transform = Transform3D(0.431812, 0.0533316, 0.246361, -0.0463227, 0.497148, -0.0264285, -0.247775, 0, 0.43429, -7.7034, -0.0294774, -0.496677)
+
+[node name="log_1" parent="Campfire" instance=ExtResource("17_en6gj")]
+transform = Transform3D(0.429006, 0, -0.256816, 0, 0.5, 0, 0.256816, 0, 0.429006, 0.995436, 0.094566, -0.853756)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.735073, -0.178307, 0.65412, 0.0799292, 0.98086, 0.177552, -0.673259, -0.0782305, 0.735256, 0, 0, 0)

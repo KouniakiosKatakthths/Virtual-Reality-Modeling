@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://djle2uevomjwl"]
+
+[ext_resource type="PackedScene" uid="uid://7g85adig8p37" path="res://assets/models/dead_tree_trunk_02_4k.gltf" id="1_ej1or"]
+[ext_resource type="Script" uid="uid://bah05y8lxho16" path="res://assets/scripts/wood.gd" id="2_4jof8"]
+[ext_resource type="PackedScene" uid="uid://cte1t8m17y6qt" path="res://assets/interactions/interaction_area.tscn" id="3_pfjte"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pfjte"]
+size = Vector3(5, 1, 1.5)
+
+[node name="log_2" instance=ExtResource("1_ej1or")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("2_4jof8")
+wood_instance = "res://assets/prefabs/fireplace objects/log_2.tscn"
+wood_name = "log"
+
+[node name="InteractionArea" parent="." index="1" instance=ExtResource("3_pfjte")]
+interaction_text = "Pickup Log"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333333, 0)
+shape = SubResource("BoxShape3D_pfjte")

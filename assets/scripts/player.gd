@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player;
 
 # Head obj ref
 @onready var head = $Head;
@@ -21,6 +22,11 @@ var current_speed = 5.0;
 
 var direction = Vector3.ZERO;
 
+# The items in the inventory
+var inventory: String = "";
+var carrying_item: bool = false;
+var item_name: String = "";
+
 func _ready() -> void:
 	# Lock the mouse to the center
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
@@ -33,6 +39,21 @@ func _input(event: InputEvent) -> void:
 		# Rotate head up and down
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens));
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90));
+
+func _process(_delta: float) -> void:
+	# Drop action was pressed and the player is carrying something
+	if Input.is_action_pressed("drop") && carrying_item:
+		# Instantiate the item and removed it from the inventory
+		var item: PackedScene = load(pop_item());
+		var instance: Node3D = item.instantiate();
+		
+		# Set position/rotation of the player 
+		instance.position = self.position;
+		instance.rotation = self.rotation;
+		
+		# Add the item as child of the main Node3D
+		get_tree().current_scene.add_child(instance);
+		
 
 func _physics_process(delta: float) -> void:
 	
@@ -86,3 +107,20 @@ func handle_movement_state(delta: float):
 			current_speed = sprinting_speed;
 		else:
 			current_speed = walking_speed;	
+
+func pickup_item(item: String, l_name: String) -> void:
+	if carrying_item: return;
+	
+	inventory = item;
+	item_name = l_name;
+	carrying_item = true;
+
+func pop_item() -> String: 
+	if !carrying_item: return "";
+	
+	# Get the item and clear the inventory
+	var temp = inventory;
+	inventory = "";
+	item_name = "";
+	carrying_item = false;
+	return temp;

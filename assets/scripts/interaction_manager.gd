@@ -23,15 +23,13 @@ func unregister_area(area: InteractionArea) -> void:
 	
 	active_areas.remove_at(index);
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Interaction areas have been added and the manager isn't handling any interaction
 	if active_areas.size() > 0 && can_interact:
 		# Find the closest to the player
 		active_areas.sort_custom(sort_by_player_distance);
 		
 		interaction_ui.text = base_text + active_areas[0].interaction_text;
-		#interaction_ui.global_position.y -= 36;
-		#interaction_ui.global_position.x = interaction_ui.size.x / 2;
 		interaction_ui.show();
 	else:
 		interaction_ui.hide();
