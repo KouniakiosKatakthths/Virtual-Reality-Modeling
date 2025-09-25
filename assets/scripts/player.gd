@@ -26,6 +26,7 @@ var direction = Vector3.ZERO;
 var inventory: String = "";
 var carrying_item: bool = false;
 var item_name: String = "";
+signal inventory_changed;
 
 func _ready() -> void:
 	# Lock the mouse to the center
@@ -114,6 +115,7 @@ func pickup_item(item: String, l_name: String) -> void:
 	inventory = item;
 	item_name = l_name;
 	carrying_item = true;
+	inventory_changed.emit();
 
 func pop_item() -> String: 
 	if !carrying_item: return "";
@@ -123,4 +125,5 @@ func pop_item() -> String:
 	inventory = "";
 	item_name = "";
 	carrying_item = false;
+	inventory_changed.emit();
 	return temp;

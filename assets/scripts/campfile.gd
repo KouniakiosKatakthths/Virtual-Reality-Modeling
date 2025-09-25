@@ -2,6 +2,8 @@ extends Node3D
 
 # Get the player instance from the groups
 @onready var player = get_tree().get_first_node_in_group("player") as Player;
+# The fire particle system 
+@onready var fire_particles: PackedScene = preload("res://assets/particles/fire_particles.tscn");
 
 # Ref to the interaction area of the wood
 @onready var interaction_area: InteractionArea = $InteractionArea;
@@ -9,33 +11,64 @@ extends Node3D
 var tinder_number: int = 0;
 var log_number: int = 0;
 
+const FIRE_STEPS := [
+	{ "id": "tinder",		"needed": "6", "text": "place tinder",				"fn": "place_tinder" },
+	{ "id": "log",			"needed": "2", "text": "place log",					"fn": "place_log" },
+	{ "id": "oilBottle",	"needed": "1", "text": "spread oil to the wood",	"fn": "spread_oil" },
+	{ "id": "lighter",		"needed": "1", "text": "light the fire",			"fn": "start_fire" }
+];
+var step_progress := 0;
+var step_index: int = 0;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Connect to the player item change signal
+	player.inventory_changed.connect(player_item_changed);
+	
 	# Enable only when the player is carrying something relative to the fire
 	interaction_area.set_enable(false);
-	interaction_area.interaction = Callable(self, "place_wood");
+	interaction_area.interaction = Callable(self, "try_interact");
 
-func _process(_delta: float) -> void:
-	# If the player is carrying one of the acceptible objects set the appropriate message
-	if player.item_name == "tinder" && tinder_number < 6:
-		interaction_area.interaction_text = "place tinder";
-		interaction_area.set_enable(true);
-	elif player.item_name == "log" && tinder_number == 6 && log_number < 2:
-		# Place logs only when all 6 tinder have been placed
-		interaction_area.interaction_text = "place log";
-		interaction_area.set_enable(true);
-	elif player.item_name == "lighter" && tinder_number == 6 && log_number == 2:
-		interaction_area.interaction_text = "light the fire";
+# Method called on player inventory change signal
+func player_item_changed() -> void:
+	# If all the steps are completed disable the campfire interaction
+	if step_index >= FIRE_STEPS.size(): 
+		interaction_area.set_enable(false);
+		return;
+	
+	# The active step
+	var step = FIRE_STEPS[step_index];
+	# If the item in the player inventory is the item of the active step
+	if player.item_name == step.id: 
+		# Enable the interaction and set the text to the step's text
+		interaction_area.interaction_text = step.text;
 		interaction_area.set_enable(true);
 	else:
-		# Player is carrying something else that is not used for fire
+		# Disable the area in any other case
 		interaction_area.set_enable(false);
+
+# Method called on interactions
+func try_interact() -> void:
+	# No interactions left
+	if step_index >= FIRE_STEPS.size(): return;
 	
-func place_wood() -> void:
-	if tinder_number < 6:
-		place_tinder();
-	elif log_number < 2:
-		place_log();
+	# The active step
+	var step = FIRE_STEPS[step_index];
+	# Double check that the correct item is on the player inventory
+	if player.item_name != step.id: return;
+	
+	# Call the step's method
+	call(step.fn);
+	
+	# Increment the step progess
+	step_progress += 1;
+	# If the needed amount of step progress is reached goto next step
+	if step_progress >= int(step.needed):
+		step_progress = 0;
+		step_index += 1;
+	
+	# Reset the interactions UI
+	player_item_changed();
 
 func place_tinder():
 	# Get the item from the player
@@ -88,6 +121,13 @@ func place_log():
 	
 	# Disable the interactions of the log
 	instance.remove_child(instance.get_node("InteractionArea"));
+
+func spread_oil():
+	pass;
+	
+func start_fire():
+	var fire_particles = fire_particles.instantiate();
+	add_child(fire_particles);
 
 func rand_rot(min_deg: float, max_deg: float) -> float:
 	return deg_to_rad(randf_range(min_deg, max_deg));

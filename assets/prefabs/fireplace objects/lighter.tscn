@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bah05y8lxho16" path="res://assets/scripts/pickup_item.gd" id="2_vmbi3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c3n8m"]
-size = Vector3(50, 1, 50)
+size = Vector3(80, 1, 80)
 
 [node name="lighter" instance=ExtResource("1_j0e8w")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)

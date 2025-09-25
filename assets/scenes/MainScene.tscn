@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://djle2uevomjwl" path="res://assets/prefabs/fireplace objects/log_2.tscn" id="17_bfd7l"]
 [ext_resource type="PackedScene" uid="uid://b3wtx7fhwqkiq" path="res://assets/prefabs/fireplace objects/log_1.tscn" id="17_en6gj"]
 [ext_resource type="PackedScene" uid="uid://csh0vkt62mtyi" path="res://assets/prefabs/fireplace objects/lighter.tscn" id="19_gxxbb"]
-[ext_resource type="PackedScene" uid="uid://dwbtv823w1dli" path="res://assets/particles/fire_particles.tscn" id="20_8kfwa"]
+[ext_resource type="PackedScene" uid="uid://dp5vwaoarm7ot" path="res://assets/prefabs/fireplace objects/oil_bottle.tscn" id="20_8kfwa"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2f3xt"]
 data = PackedVector3Array(-15, -0.125, 11.5672, -15, -0.125, -11.5672, -15, 0.125, -11.5672, 15, -0.125, -11.5672, -15, -0.125, -11.5672, -15, -0.125, 11.5672, -15, 0.125, -11.5672, -15, -0.125, -11.5672, 15, -0.125, -11.5672, -15, 0.125, -11.5672, -15, 0.125, 11.5672, -15, -0.125, 11.5672, -15, -0.125, 11.5672, -15, 0.125, 11.5672, 15, 0.125, 11.5672, 15, 0.125, 11.5672, -15, 0.125, 11.5672, -15, 0.125, -11.5672, -15, -0.125, 11.5672, 15, -0.125, 11.5672, 15, -0.125, -11.5672, 15, 0.125, 11.5672, 15, -0.125, 11.5672, -15, -0.125, 11.5672, 15, -0.125, -11.5672, 15, -0.125, 11.5672, 15, 0.125, 11.5672, 15, -0.125, -11.5672, 15, 0.125, -11.5672, -15, 0.125, -11.5672, -15, 0.125, -11.5672, 15, 0.125, -11.5672, 15, 0.125, 11.5672, 15, 0.125, 11.5672, 15, 0.125, -11.5672, 15, -0.125, -11.5672)
@@ -110,7 +110,7 @@ transform = Transform3D(0.213302, 0, 0.976986, 0, 1, 0, -0.976986, 0, 0.213302, 
 transform = Transform3D(0.553043, 0, -0.833153, 0, 1, 0, 0.833153, 0, 0.553043, -8.63288, -0.343348, -1.92546)
 
 [node name="Camera_01_4k" parent="Env" instance=ExtResource("11_pnlpj")]
-transform = Transform3D(0.366274, 0, 0.930507, 0, 1, 0, -0.930507, 0, 0.366274, -0.812567, 0.795895, 1.77599)
+transform = Transform3D(0.366274, 0, 0.930507, 0, 1, 0, -0.930507, 0, 0.366274, -0.902814, 0.795895, 1.30625)
 
 [node name="utility_box_02_4k" parent="Env" instance=ExtResource("12_oxok2")]
 transform = Transform3D(-0.998558, 0, -0.053678, 0, 1, 0, 0.053678, 0, -0.998558, -7.83447, 0, 4.38372)
@@ -130,7 +130,10 @@ transform = Transform3D(0.431812, 0.0533316, 0.246361, -0.0463227, 0.497148, -0.
 transform = Transform3D(0.429006, 0, -0.256816, 0, 0.5, 0, 0.256816, 0, 0.429006, 0.995436, 0.094566, -0.853756)
 
 [node name="lighter" parent="Campfire" instance=ExtResource("19_gxxbb")]
-transform = Transform3D(0.0182907, 0, -0.00809006, 0, 0.02, 0, 0.00809007, 0, 0.0182907, -0.89218, 0.751066, 2.49411)
+transform = Transform3D(0.0182907, 0, -0.00809006, 0, 0.02, 0, 0.00809007, 0, 0.0182907, -0.679247, 0.751066, 2.54573)
+
+[node name="OilBottle" parent="Campfire" instance=ExtResource("20_8kfwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99194, 0.750885, 2.32697)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.735073, -0.178307, 0.65412, 0.0799292, 0.98086, 0.177552, -0.673259, -0.0782305, 0.735256, 0, 0, 0)
@@ -145,6 +148,3 @@ environment = SubResource("Environment_oxok2")
 
 [node name="Player" parent="." instance=ExtResource("14_2f3xt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12215, 0, 2.03847)
-
-[node name="FireParticles" parent="." instance=ExtResource("20_8kfwa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6936, 0.372414, 5.62414)

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp5vwaoarm7ot"]
+
+[ext_resource type="PackedScene" uid="uid://bxbvw5nufefnk" path="res://assets/models/bottle.gltf" id="1_v45wr"]
+[ext_resource type="PackedScene" uid="uid://cte1t8m17y6qt" path="res://assets/interactions/interaction_area.tscn" id="2_axmwi"]
+[ext_resource type="Script" uid="uid://bah05y8lxho16" path="res://assets/scripts/pickup_item.gd" id="2_g4al4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axmwi"]
+size = Vector3(1.7, 0.546, 1.7)
+
+[node name="OilBottle" instance=ExtResource("1_v45wr")]
+script = ExtResource("2_g4al4")
+item_instance = "res://assets/prefabs/fireplace objects/oil_bottle.tscn"
+item_name = "oilBottle"
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(0.001, 0, 0, 0, -4.37114e-11, 0.001, 0, -0.001, -4.37114e-11, 0, 0, 0)
+
+[node name="InteractionArea" parent="." index="1" instance=ExtResource("2_axmwi")]
+interaction_text = "Pickup Oil"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226807, 0)
+shape = SubResource("BoxShape3D_axmwi")
