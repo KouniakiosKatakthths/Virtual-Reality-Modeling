@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3wtx7fhwqkiq"]
 
 [ext_resource type="PackedScene" uid="uid://cy8585wiangip" path="res://assets/models/dead_tree_trunk_4k.gltf" id="1_47jl5"]
-[ext_resource type="Script" uid="uid://bah05y8lxho16" path="res://assets/scripts/wood.gd" id="2_b5fbj"]
+[ext_resource type="Script" uid="uid://bah05y8lxho16" path="res://assets/scripts/pickup_item.gd" id="2_b5fbj"]
 [ext_resource type="PackedScene" uid="uid://cte1t8m17y6qt" path="res://assets/interactions/interaction_area.tscn" id="2_ge73o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ge73o"]
@@ -10,8 +10,8 @@ size = Vector3(4, 1, 1)
 [node name="log_1" instance=ExtResource("1_47jl5")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("2_b5fbj")
-wood_instance = "res://assets/prefabs/fireplace objects/log_1.tscn"
-wood_name = "log"
+item_instance = "res://assets/prefabs/fireplace objects/log_1.tscn"
+item_name = "log"
 
 [node name="InteractionArea" parent="." index="1" instance=ExtResource("2_ge73o")]
 interaction_text = "Pickup Log"

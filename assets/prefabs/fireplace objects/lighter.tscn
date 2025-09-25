@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://csh0vkt62mtyi"]
+
+[ext_resource type="PackedScene" uid="uid://dat818ejlmnlx" path="res://assets/models/lighter.gltf" id="1_j0e8w"]
+[ext_resource type="PackedScene" uid="uid://cte1t8m17y6qt" path="res://assets/interactions/interaction_area.tscn" id="2_c3n8m"]
+[ext_resource type="Script" uid="uid://bah05y8lxho16" path="res://assets/scripts/pickup_item.gd" id="2_vmbi3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c3n8m"]
+size = Vector3(50, 1, 50)
+
+[node name="lighter" instance=ExtResource("1_j0e8w")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+script = ExtResource("2_vmbi3")
+item_instance = "res://assets/prefabs/fireplace objects/lighter.tscn"
+item_name = "lighter"
+
+[node name="InteractionArea" parent="." index="0" instance=ExtResource("2_c3n8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33592, 0)
+interaction_text = "Pickup Lighter"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" index="0"]
+transform = Transform3D(1, 9.86322e-12, 0, -3.39216e-10, 1, 0, 7.88714e-09, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_c3n8m")
+
+[node name="RootNode" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.84098, 0)

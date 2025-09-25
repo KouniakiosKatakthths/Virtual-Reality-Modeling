@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://cciy8m0n4y8pe"]
 
 [ext_resource type="Texture2D" uid="uid://da6ryblaa2wjd" path="res://assets/models/textures/wooden_barrels_01_pieces_diff_4k.jpg" id="1_soe3j"]
-[ext_resource type="Script" uid="uid://bah05y8lxho16" path="res://assets/scripts/wood.gd" id="1_vr7yg"]
+[ext_resource type="Script" uid="uid://bah05y8lxho16" path="res://assets/scripts/pickup_item.gd" id="1_vr7yg"]
 [ext_resource type="Texture2D" uid="uid://svkmu5155psu" path="res://assets/models/textures/wooden_barrels_01_pieces_arm_4k.jpg" id="2_fsdmh"]
 [ext_resource type="Texture2D" uid="uid://cwafc1cab18pc" path="res://assets/models/textures/wooden_barrels_01_pieces_nor_gl_4k.jpg" id="3_vr7yg"]
 [ext_resource type="PackedScene" uid="uid://cte1t8m17y6qt" path="res://assets/interactions/interaction_area.tscn" id="4_fsdmh"]
@@ -57,8 +57,8 @@ size = Vector3(1, 0.574463, 1)
 
 [node name="BarrelWood1" type="Node3D"]
 script = ExtResource("1_vr7yg")
-wood_instance = "res://assets/prefabs/fireplace objects/barrel_wood_1.tscn"
-wood_name = "tinder"
+item_instance = "res://assets/prefabs/fireplace objects/barrel_wood_1.tscn"
+item_name = "tinder"
 
 [node name="wooden_barrels_01_piece04" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0411179, 0)

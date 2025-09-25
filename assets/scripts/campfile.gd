@@ -25,7 +25,8 @@ func _process(_delta: float) -> void:
 		interaction_area.interaction_text = "place log";
 		interaction_area.set_enable(true);
 	elif player.item_name == "lighter" && tinder_number == 6 && log_number == 2:
-		pass
+		interaction_area.interaction_text = "light the fire";
+		interaction_area.set_enable(true);
 	else:
 		# Player is carrying something else that is not used for fire
 		interaction_area.set_enable(false);
