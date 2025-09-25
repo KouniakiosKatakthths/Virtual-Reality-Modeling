@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cf6r1qt8a5gvb"]
+[gd_scene load_steps=25 format=3 uid="uid://cf6r1qt8a5gvb"]
 
 [ext_resource type="Material" uid="uid://bf6d7rc164mtp" path="res://assets/materials/forest_leaves.tres" id="1_8kf5t"]
 [ext_resource type="PackedScene" uid="uid://b0h3qo7gpftlo" path="res://assets/prefabs/tree_small.tscn" id="2_i4hrn"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://djle2uevomjwl" path="res://assets/prefabs/fireplace objects/log_2.tscn" id="17_bfd7l"]
 [ext_resource type="PackedScene" uid="uid://b3wtx7fhwqkiq" path="res://assets/prefabs/fireplace objects/log_1.tscn" id="17_en6gj"]
 [ext_resource type="PackedScene" uid="uid://csh0vkt62mtyi" path="res://assets/prefabs/fireplace objects/lighter.tscn" id="19_gxxbb"]
+[ext_resource type="PackedScene" uid="uid://dwbtv823w1dli" path="res://assets/particles/fire_particles.tscn" id="20_8kfwa"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2f3xt"]
 data = PackedVector3Array(-15, -0.125, 11.5672, -15, -0.125, -11.5672, -15, 0.125, -11.5672, 15, -0.125, -11.5672, -15, -0.125, -11.5672, -15, -0.125, 11.5672, -15, 0.125, -11.5672, -15, -0.125, -11.5672, 15, -0.125, -11.5672, -15, 0.125, -11.5672, -15, 0.125, 11.5672, -15, -0.125, 11.5672, -15, -0.125, 11.5672, -15, 0.125, 11.5672, 15, 0.125, 11.5672, 15, 0.125, 11.5672, -15, 0.125, 11.5672, -15, 0.125, -11.5672, -15, -0.125, 11.5672, 15, -0.125, 11.5672, 15, -0.125, -11.5672, 15, 0.125, 11.5672, 15, -0.125, 11.5672, -15, -0.125, 11.5672, 15, -0.125, -11.5672, 15, -0.125, 11.5672, 15, 0.125, 11.5672, 15, -0.125, -11.5672, 15, 0.125, -11.5672, -15, 0.125, -11.5672, -15, 0.125, -11.5672, 15, 0.125, -11.5672, 15, 0.125, 11.5672, 15, 0.125, 11.5672, 15, 0.125, -11.5672, 15, -0.125, -11.5672)
@@ -144,3 +145,6 @@ environment = SubResource("Environment_oxok2")
 
 [node name="Player" parent="." instance=ExtResource("14_2f3xt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12215, 0, 2.03847)
+
+[node name="FireParticles" parent="." instance=ExtResource("20_8kfwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6936, 0.372414, 5.62414)
