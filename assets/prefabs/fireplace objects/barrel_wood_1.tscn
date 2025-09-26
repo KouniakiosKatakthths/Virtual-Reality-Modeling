@@ -58,7 +58,7 @@ size = Vector3(1, 0.574463, 1)
 [node name="BarrelWood1" type="Node3D"]
 script = ExtResource("1_vr7yg")
 item_instance = "res://assets/prefabs/fireplace objects/barrel_wood_1.tscn"
-item_name = "tinder"
+item_name = "Tinder"
 
 [node name="wooden_barrels_01_piece04" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0411179, 0)

@@ -1,6 +1,9 @@
 extends CharacterBody3D
 class_name Player;
 
+# Get a referance to the UI script
+@onready var ui = get_tree().get_first_node_in_group("ui");
+
 # Head obj ref
 @onready var head = $Head;
 
@@ -112,10 +115,16 @@ func handle_movement_state(delta: float):
 func pickup_item(item: String, l_name: String) -> void:
 	if carrying_item: return;
 	
+	# Set the inventory details
 	inventory = item;
 	item_name = l_name;
 	carrying_item = true;
+	
+	# Trigger the signals callbacks
 	inventory_changed.emit();
+	
+	# Update the UI
+	ui.update_inventory_item(item_name);
 
 func pop_item() -> String: 
 	if !carrying_item: return "";
@@ -125,5 +134,11 @@ func pop_item() -> String:
 	inventory = "";
 	item_name = "";
 	carrying_item = false;
+	
+	# Trigger the signals callbacks
 	inventory_changed.emit();
+	
+		# Update the UI
+	ui.update_inventory_item("None");
+	
 	return temp;

@@ -11,7 +11,7 @@ size = Vector3(5, 1, 1.5)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("2_4jof8")
 item_instance = "res://assets/prefabs/fireplace objects/log_2.tscn"
-item_name = "log"
+item_name = "Log"
 
 [node name="InteractionArea" parent="." index="1" instance=ExtResource("3_pfjte")]
 interaction_text = "Pickup Log"

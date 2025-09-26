@@ -27,8 +27,15 @@ func _process(_delta: float) -> void:
 	# Interaction areas have been added and the manager isn't handling any interaction
 	if active_areas.size() > 0 && can_interact:
 		# Find the closest to the player
+		# Disabled areas go to the back of the queue
 		active_areas.sort_custom(sort_by_player_distance);
 		
+		# If the first of the sorted queue is disabled then there are no enabled areas
+		if !active_areas[0].enable_interaction:
+			interaction_ui.hide();
+			return;
+		
+		# Show the interaction text
 		interaction_ui.text = base_text + active_areas[0].interaction_text;
 		interaction_ui.show();
 	else:
@@ -38,7 +45,17 @@ func _process(_delta: float) -> void:
 func sort_by_player_distance(area1: InteractionArea, area2: InteractionArea) -> bool:
 	var dis_a1 = player.global_position.distance_to(area1.global_position);
 	var dis_a2 = player.global_position.distance_to(area2.global_position);
-	return dis_a1 < dis_a2;
+	
+	# a1 is closer than a2
+	if (dis_a1 < dis_a2):
+		# If the a1 is enabled
+		return area1.enable_interaction;
+	elif !area2.enable_interaction:
+		# a2 is closer than a1 but a2 is disabled
+		return true;
+	else:
+		# a2 is closer than a1
+		return false;
 	
 func _input(event: InputEvent) -> void:
 	# The interaction action isn't selected
@@ -46,6 +63,9 @@ func _input(event: InputEvent) -> void:
 	
 	# No interaction objs exist or the manager is handling an interaction already
 	if active_areas.size() == 0 || !can_interact: return;
+	
+	# The closest interactable has disabled interactions
+	if !active_areas[0].enable_interaction: return;
 	
 	# Hide the ui as the interaction is been handled
 	can_interact = false;

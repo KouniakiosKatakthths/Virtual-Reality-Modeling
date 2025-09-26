@@ -12,8 +12,9 @@ class_name PickupItem
 
 func _ready() -> void:
 	interaction_area.interaction = Callable(self, "item_pickup");
+	player.inventory_changed.connect(player_inventory_changed);
 
-func _process(_delta: float) -> void:
+func player_inventory_changed() -> void:
 	# Disable interaction if the player is already carrying something
 	interaction_area.set_enable(!player.carrying_item)
 

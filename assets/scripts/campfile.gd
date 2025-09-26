@@ -11,13 +11,27 @@ extends Node3D
 var tinder_number: int = 0;
 var log_number: int = 0;
 
+# The rocks that need to be moved in position
+@onready var ROCKS := [
+	{ "rock": $boulders/boulder_01_4k4, 	"position": Vector3(0.805, 0.015, 0.587) },
+	{ "rock": $boulders/boulder_01_4k9, 	"position": Vector3(0.759, 0.001, -0.47) },
+	{ "rock": $boulders/boulder_01_4k10,	"position": Vector3(0.338, 0.001, -0.891) },
+	{ "rock": $boulders/boulder_01_4k7, 	"position": Vector3(-0.191, 0.001, -0.886) },
+	{ "rock": $boulders/boulder_01_4k5,		"position": Vector3(-0.954, 0.001, 0.038) },
+]
+
+# Steps to start the fires
 const FIRE_STEPS := [
-	{ "id": "tinder",		"needed": "6", "text": "place tinder",				"fn": "place_tinder" },
-	{ "id": "log",			"needed": "2", "text": "place log",					"fn": "place_log" },
-	{ "id": "oilBottle",	"needed": "1", "text": "spread oil to the wood",	"fn": "spread_oil" },
-	{ "id": "lighter",		"needed": "1", "text": "light the fire",			"fn": "start_fire" }
+	{ "id": "", 			"needed": "4", "text": "fix campfire", 				"fn": "move_rocks" },
+	{ "id": "Tinder",		"needed": "6", "text": "place tinder",				"fn": "place_tinder" },
+	{ "id": "Log",			"needed": "2", "text": "place log",					"fn": "place_log" },
+	{ "id": "Oil Bottle",	"needed": "1", "text": "spread oil to the wood",	"fn": "spread_oil" },
+	{ "id": "Lighter",		"needed": "1", "text": "light the fire",			"fn": "start_fire" }
 ];
+
+# The progress of the current step
 var step_progress := 0;
+# The step currently in
 var step_index: int = 0;
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +42,9 @@ func _ready() -> void:
 	# Enable only when the player is carrying something relative to the fire
 	interaction_area.set_enable(false);
 	interaction_area.interaction = Callable(self, "try_interact");
+	
+	# Init set the state
+	player_item_changed();
 
 # Method called on player inventory change signal
 func player_item_changed() -> void:
@@ -70,7 +87,7 @@ func try_interact() -> void:
 	# Reset the interactions UI
 	player_item_changed();
 
-func place_tinder():
+func place_tinder() -> void:
 	# Get the item from the player
 	var item_path = player.pop_item();
 	
@@ -96,7 +113,7 @@ func place_tinder():
 	# Disable the interactions of the tinder
 	instance.remove_child(instance.get_node("InteractionArea"));
 
-func place_log():
+func place_log() -> void: 
 	# Get the item from the player
 	var item_path = player.pop_item();
 	
@@ -121,6 +138,18 @@ func place_log():
 	
 	# Disable the interactions of the log
 	instance.remove_child(instance.get_node("InteractionArea"));
+
+func move_rocks():
+	# Get the boulder that needs to be moved right now
+	var current_boulder = ROCKS[step_progress];
+	# Chnage the position with tween for linear movement
+	var tween = create_tween();
+	tween.tween_property(
+		current_boulder.rock,
+		"position",
+		current_boulder.position,
+		.7
+	);
 
 func spread_oil():
 	pass;

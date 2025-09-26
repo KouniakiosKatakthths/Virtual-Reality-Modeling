@@ -22,7 +22,7 @@ shape = SubResource("BoxShape3D_a555k")
 transform = Transform3D(0.220685, 0, -0.30445, 0, 0.376021, 0, 0.30445, 0, 0.220685, 0.317443, 0.00121822, 0.912894)
 
 [node name="boulder_01_4k4" parent="boulders" instance=ExtResource("1_icf3s")]
-transform = Transform3D(0.264999, 0, -0.266772, 0, 0.376021, 0, 0.266772, 0, 0.264999, 0.752697, 0.0150755, 0.58942)
+transform = Transform3D(0.264999, 0, -0.266772, 0, 0.376021, 0, 0.266772, 0, 0.264999, 2.39092, 0.0150755, 0.58942)
 
 [node name="boulder_01_4k8" parent="boulders" instance=ExtResource("1_icf3s")]
 transform = Transform3D(0.374563, 0, -0.0330731, 0, 0.376021, 0, 0.0330731, 0, 0.374563, 0.936661, 0.0112134, 0.123642)
@@ -34,16 +34,16 @@ transform = Transform3D(-0.166174, 0, -0.337309, 0, 0.376021, 0, 0.337309, 0, -0
 transform = Transform3D(-0.30625, 0, -0.21818, 0, 0.376021, 0, 0.21818, 0, -0.30625, -0.721482, 0.00121822, 0.613481)
 
 [node name="boulder_01_4k5" parent="boulders" instance=ExtResource("1_icf3s")]
-transform = Transform3D(-0.370801, 0, 0.0624367, 0, 0.376021, 0, -0.0624367, 0, -0.370801, -0.949435, 0.00121822, 0.080566)
+transform = Transform3D(-0.370801, 0, 0.0624367, 0, 0.376021, 0, -0.0624367, 0, -0.370801, -0.953521, 0.00121846, 0.038177)
 
 [node name="boulder_01_4k9" parent="boulders" instance=ExtResource("1_icf3s")]
-transform = Transform3D(-0.314806, 0, -0.205642, 0, 0.376021, 0, 0.205642, 0, -0.314806, 0.796349, 0.00121838, -0.457365)
+transform = Transform3D(-0.314806, 0, -0.205642, 0, 0.376021, 0, 0.205642, 0, -0.314806, 1.995, 0.00121838, -1.35508)
 
 [node name="boulder_01_4k6" parent="boulders" instance=ExtResource("1_icf3s")]
 transform = Transform3D(-0.283252, 0, 0.247305, 0, 0.376021, 0, -0.247305, 0, -0.283252, -0.694483, 0.00121822, -0.509078)
 
 [node name="boulder_01_4k7" parent="boulders" instance=ExtResource("1_icf3s")]
-transform = Transform3D(-0.0158248, 0, 0.375688, 0, 0.376021, 0, -0.375688, 0, -0.0158248, -0.269186, 0.00121822, -0.891494)
+transform = Transform3D(-0.0158248, 0, 0.375688, 0, 0.376021, 0, -0.375688, 0, -0.0158248, -0.858796, 0.00121822, -1.62556)
 
 [node name="boulder_01_4k10" parent="boulders" instance=ExtResource("1_icf3s")]
-transform = Transform3D(0.081879, 0, 0.366998, 0, 0.376021, 0, -0.366998, 0, 0.081879, 0.348269, 0.00121822, -0.924827)
+transform = Transform3D(0.081879, 0, 0.366998, 0, 0.376021, 0, -0.366998, 0, 0.081879, 1.28693, 0.00121822, -1.47204)

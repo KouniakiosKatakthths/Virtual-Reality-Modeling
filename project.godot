@@ -23,6 +23,7 @@ InteractionManager="*res://assets/interactions/interaction_manager.tscn"
 [global_group]
 
 player=""
+ui=""
 
 [input]
 
