@@ -58,6 +58,8 @@ The campfire is lit
     * [Dead Tree Trunk 02](https://polyhaven.com/a/dead_tree_trunk_02)
 * Sketchfab
     * [Old Bottle](https://sketchfab.com/3d-models/old-bottle-ee25aa51679042609dd3295fdeb99a65)
+* CGTrader
+    * [Zippo style gasoline lighter](https://www.cgtrader.com/items/4460252/download-page)
 * Fonts Used
     * [Sign Ron Font](https://www.1001freefonts.com/sign-ron.font)
 
