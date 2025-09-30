@@ -42,6 +42,7 @@ font = ExtResource("21_hg2lm")
 font_size = 25
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00272e-05, -0.00457203, 0.000141859)
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(0.645592, 0, 0, 0, 0.645592, 0, 0, 0, 0.645592, -4.4612, 0, 0.921164)
