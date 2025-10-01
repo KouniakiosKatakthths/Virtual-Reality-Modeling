@@ -155,8 +155,8 @@ func spread_oil():
 	pass;
 	
 func start_fire():
-	var fire_particles = fire_particles.instantiate();
-	add_child(fire_particles);
+	var fire = fire_particles.instantiate();
+	add_child(fire);
 
 func rand_rot(min_deg: float, max_deg: float) -> float:
 	return deg_to_rad(randf_range(min_deg, max_deg));
