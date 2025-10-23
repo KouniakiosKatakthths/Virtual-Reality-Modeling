@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7peaa7lbivdi"
+path="res://.godot/imported/running_4.wav-312337d4946e2ab5e52ca5971e19b80f.sample"
+
+[deps]
+
+source_file="res://assets/audio clips/running/running_4.wav"
+dest_files=["res://.godot/imported/running_4.wav-312337d4946e2ab5e52ca5971e19b80f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
