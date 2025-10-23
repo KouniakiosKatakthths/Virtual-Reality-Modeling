@@ -1,7 +1,7 @@
 extends Node
 
 const sounds := {
-	"walk": preload("res://assets/audio clips/footsteps.mp3"),
+	"walk": preload("res://assets/audio clips/walking_randomizer.tres"),
 	"sprint": preload("res://assets/audio clips/footsteps.mp3"), 
 	"sneak": preload("res://assets/audio clips/footsteps.mp3"),
 	"pickup": preload("res://assets/audio clips/footsteps.mp3"),
@@ -11,7 +11,7 @@ const sounds := {
 # Attach a sound effect in the player from a spesific category
 func play(category: String, player: Player):
 	# Get the sound type from the category
-	var type: Resource = sounds.get(category);
+	var type: AudioStream = sounds.get(category);
 	if type == null: return;
 	
 	# Create and setup the audio player

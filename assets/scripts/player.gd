@@ -20,19 +20,22 @@ class_name Player;
 @export var sneaking_depth = -0.5;
 @export var jump_velocity = 4.5;
 
+@export var walking_sound_duration: float;
+@export var sprinting_sound_duration: float;
+@export var sneaking_sound_duration: float;
+
 var lerp_speed = 10.0;
 var current_speed = 5.0;
 
 var direction = Vector3.ZERO;
+
+var steps_timer := 0.0
 
 # The items in the inventory
 var inventory: String = "";
 var carrying_item: bool = false;
 var item_name: String = "";
 signal inventory_changed;
-
-# Load the player walking sound
-var player_walking = preload("res://assets/audio clips/footsteps.mp3");
 
 func _ready() -> void:
 	# Lock the mouse to the center
@@ -91,6 +94,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 	
+	# Handle footsteps sounds
+	handle_footstep_sound(input_dir, delta);
+	
 	move_and_slide()
 
 func handle_movement_state(delta: float):
@@ -114,6 +120,28 @@ func handle_movement_state(delta: float):
 			current_speed = sprinting_speed;
 		else:
 			current_speed = walking_speed;	
+
+func handle_footstep_sound(input_dir: Vector2, deltatime: float) -> void:
+	# No inputs or the player isn't touching the floor
+	if input_dir.length() <= 0.05 || !is_on_floor():
+		steps_timer = 0.0
+		return;
+	
+	# Remove the elapsed time from the sound timer
+	steps_timer -= deltatime;
+	
+	# Sound is done playing
+	if steps_timer <= 0:
+		# Get the category in text based on the current speed of the player
+		var cat = get_category(current_speed);
+		SoundManager.play(cat, self);
+		
+		# Assign the new sound duration based on the categoty 
+		match cat:
+			"walk": steps_timer = walking_sound_duration;
+			"sprint": steps_timer = sprinting_sound_duration;
+			"sneak": steps_timer = sneaking_sound_duration;
+		
 
 func pickup_item(item: String, l_name: String) -> void:
 	if carrying_item: return;
@@ -145,3 +173,9 @@ func pop_item() -> String:
 	ui.update_inventory_item("None");
 	
 	return temp;
+
+func get_category(speed: float) -> String:
+	if speed == walking_speed: return "walk";
+	elif speed == sprinting_speed: return "sprint";
+	elif speed == sneaking_speed: return "sneak";
+	return "";
