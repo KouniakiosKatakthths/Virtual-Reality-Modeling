@@ -31,6 +31,9 @@ var carrying_item: bool = false;
 var item_name: String = "";
 signal inventory_changed;
 
+# Load the player walking sound
+var player_walking = preload("res://assets/audio clips/footsteps.mp3");
+
 func _ready() -> void:
 	# Lock the mouse to the center
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
@@ -87,7 +90,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
-
+	
 	move_and_slide()
 
 func handle_movement_state(delta: float):

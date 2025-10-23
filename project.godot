@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InteractionManager="*res://assets/interactions/interaction_manager.tscn"
+SoundManager="*res://assets/scripts/sound_manager.gd"
 
 [global_group]
 
