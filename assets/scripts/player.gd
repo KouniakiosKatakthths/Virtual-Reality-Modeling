@@ -154,6 +154,9 @@ func pickup_item(item: String, l_name: String) -> void:
 	# Trigger the signals callbacks
 	inventory_changed.emit();
 	
+	# Play the pickup sound
+	SoundManager.play("pickup", self);
+	
 	# Update the UI
 	ui.update_inventory_item(item_name);
 
@@ -169,7 +172,10 @@ func pop_item() -> String:
 	# Trigger the signals callbacks
 	inventory_changed.emit();
 	
-		# Update the UI
+	# Play the drop sound
+	SoundManager.play("drop", self);
+	
+	# Update the UI
 	ui.update_inventory_item("None");
 	
 	return temp;

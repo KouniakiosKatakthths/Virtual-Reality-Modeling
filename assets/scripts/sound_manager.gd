@@ -4,8 +4,10 @@ const sounds := {
 	"walk": preload("res://assets/audio clips/walking_randomizer.tres"),
 	"sprint": preload("res://assets/audio clips/running_randomizer.tres"), 
 	"sneak": preload("res://assets/audio clips/sneaking_randomizer.tres"),
-	"pickup": preload("res://assets/audio clips/footsteps.mp3"),
-	"drop": preload("res://assets/audio clips/footsteps.mp3")
+	"pickup": preload("res://assets/audio clips/pickup.wav"),
+	"drop": preload("res://assets/audio clips/drop.wav"),
+	"lighter": preload("res://assets/audio clips/lighter.wav"),
+	"oil": preload("res://assets/audio clips/oil.wav")
 }
 
 # Attach a sound effect in the player from a spesific category

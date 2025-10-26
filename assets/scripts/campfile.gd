@@ -152,9 +152,11 @@ func move_rocks():
 	);
 
 func spread_oil():
-	pass;
+	SoundManager.play("oil", player);
 	
 func start_fire():
+	SoundManager.play("lighter", player);
+	
 	var fire = fire_particles.instantiate();
 	add_child(fire);
 
