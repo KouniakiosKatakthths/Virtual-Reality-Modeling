@@ -12,6 +12,7 @@ collision_layer = 2
 script = ExtResource("1_bcxd0")
 walking_sound_duration = 0.4
 sprinting_sound_duration = 0.4
+sneaking_sound_duration = 1.333
 
 [node name="standing_collition" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -28,5 +29,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

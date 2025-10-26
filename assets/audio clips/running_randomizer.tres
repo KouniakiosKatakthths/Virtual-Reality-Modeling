@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://ckbqpff1au3rw" path="res://assets/audio clips/running/running_10.wav" id="10_ticr3"]
 
 [resource]
+random_volume_offset_db = 10.0
 streams_count = 10
 stream_0/stream = ExtResource("1_vc2qs")
 stream_1/stream = ExtResource("2_sp1hn")

@@ -1,0 +1,21 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=9 format=3 uid="uid://blvosrm84xxlp"]
+
+[ext_resource type="AudioStream" uid="uid://xmv4mono0jty" path="res://assets/audio clips/sneaking/sneak_1.wav" id="1_264fu"]
+[ext_resource type="AudioStream" uid="uid://mysum8shtk3f" path="res://assets/audio clips/sneaking/sneak_2.wav" id="2_3rq4j"]
+[ext_resource type="AudioStream" uid="uid://c0mjck6y3e8x5" path="res://assets/audio clips/sneaking/sneak_3.wav" id="3_gl1g2"]
+[ext_resource type="AudioStream" uid="uid://dbhmuvbpp7nli" path="res://assets/audio clips/sneaking/sneak_4.wav" id="4_l4dmj"]
+[ext_resource type="AudioStream" uid="uid://c6t2sli6j4rf0" path="res://assets/audio clips/sneaking/sneak_5.wav" id="5_2mguf"]
+[ext_resource type="AudioStream" uid="uid://cweke1sjal52w" path="res://assets/audio clips/sneaking/sneak_6.wav" id="6_8m03r"]
+[ext_resource type="AudioStream" uid="uid://bsbpa4ihybwkr" path="res://assets/audio clips/sneaking/sneak_7.wav" id="7_ajb22"]
+[ext_resource type="AudioStream" uid="uid://b6f0bgc5ir2qf" path="res://assets/audio clips/sneaking/sneak_8.wav" id="8_fbfcj"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_264fu")
+stream_1/stream = ExtResource("2_3rq4j")
+stream_2/stream = ExtResource("3_gl1g2")
+stream_3/stream = ExtResource("4_l4dmj")
+stream_4/stream = ExtResource("5_2mguf")
+stream_5/stream = ExtResource("6_8m03r")
+stream_6/stream = ExtResource("7_ajb22")
+stream_7/stream = ExtResource("8_fbfcj")

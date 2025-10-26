@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://vvsl55pt86s3" path="res://assets/audio clips/walking/walk_10.wav" id="10_4kwv3"]
 
 [resource]
+random_volume_offset_db = 10.0
 streams_count = 10
 stream_0/stream = ExtResource("1_fbx5p")
 stream_1/stream = ExtResource("2_2bgkb")
