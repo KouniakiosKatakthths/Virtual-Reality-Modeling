@@ -4,6 +4,10 @@ extends Node3D
 @onready var player = get_tree().get_first_node_in_group("player") as Player;
 # The fire particle system 
 @onready var fire_particles: PackedScene = preload("res://assets/particles/fire_particles.tscn");
+# The dust particle system
+@onready var dust_particles: PackedScene = preload("res://assets/particles/dust_particles.tscn");
+# Load the moving rocks sounds
+@onready var boulder_sounds: AudioStreamRandomizer = preload("res://assets/audio clips/rock_moving_randomizer.tres");
 
 # Ref to the interaction area of the wood
 @onready var interaction_area: InteractionArea = $InteractionArea;
@@ -150,6 +154,28 @@ func move_rocks():
 		current_boulder.position,
 		.7
 	);
+	
+	# Instanciate the particle system
+	var dust = dust_particles.instantiate();
+	# Added in to the boulder
+	current_boulder.rock.add_child(dust);
+	
+	# Start the emmiting
+	var s_dust = dust as DustParticles;
+	s_dust.emmit();
+	
+	# Instanciate an audio player and added it as a child of this node
+	var rock_sound = AudioStreamPlayer3D.new();
+	add_child(rock_sound);
+	
+	# Get a random clip from the pool and start playback
+	rock_sound.stream = boulder_sounds;
+	rock_sound.play();
+	
+	# Autoremove on playback end
+	rock_sound.finished.connect(func():
+		rock_sound.queue_free();
+	)
 
 func spread_oil():
 	SoundManager.play("oil", player);

@@ -2,6 +2,8 @@ extends Node3D
 
 # Ref to the interaction area of the barrel
 @onready var interaction_area: InteractionArea = $InteractionArea;
+# Get the reference to the particle system
+@onready var dust_particles := $DustParticles as DustParticles;
 
 var barrel_wood_1 = preload("res://assets/prefabs/fireplace objects/barrel_wood_2.tscn")
 var barrel_wood_2 = preload("res://assets/prefabs/fireplace objects/barrel_wood_2.tscn");
@@ -23,6 +25,9 @@ func get_wood():
 	barrel_removed.show();
 	# Disable the interaction
 	interaction_area.set_enable(false);
+	
+	# Emmit a burst of dust
+	dust_particles.emmit();
 	
 	# Spawn wood in random locations around the barrel
 	spawn_wood(barrel_wood_1);

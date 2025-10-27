@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://bv4asmid6i82p"]
+
+[ext_resource type="AudioStream" uid="uid://vwerl0prbg0o" path="res://assets/audio clips/rock_moving/rock_moving_1.wav" id="1_y2wsa"]
+[ext_resource type="AudioStream" uid="uid://dgwyx5k0wyxaw" path="res://assets/audio clips/rock_moving/rock_moving_2.wav" id="2_bwsw6"]
+[ext_resource type="AudioStream" uid="uid://bb8sylsm8ca31" path="res://assets/audio clips/rock_moving/rock_moving_3.wav" id="3_bwsw6"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_y2wsa")
+stream_1/stream = ExtResource("2_bwsw6")
+stream_2/stream = ExtResource("3_bwsw6")

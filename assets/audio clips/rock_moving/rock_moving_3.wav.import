@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bb8sylsm8ca31"
+path="res://.godot/imported/rock_moving_3.wav-4634e6059ac14831793a24f3a96305c8.sample"
+
+[deps]
+
+source_file="res://assets/audio clips/rock_moving/rock_moving_3.wav"
+dest_files=["res://.godot/imported/rock_moving_3.wav-4634e6059ac14831793a24f3a96305c8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

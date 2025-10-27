@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://kvfk1knqg0wp"]
+[gd_scene load_steps=7 format=3 uid="uid://kvfk1knqg0wp"]
 
 [ext_resource type="Script" uid="uid://034r4pu4mfti" path="res://assets/scripts/barrel.gd" id="1_gvlh5"]
 [ext_resource type="PackedScene" uid="uid://ddkjn630wk5ta" path="res://assets/prefabs/fireplace objects/barrel_complete.tscn" id="1_pfbm4"]
+[ext_resource type="PackedScene" uid="uid://dx63wguny4bct" path="res://assets/particles/dust_particles.tscn" id="2_7syto"]
 [ext_resource type="PackedScene" uid="uid://bjijyhg5ve1ml" path="res://assets/prefabs/fireplace objects/barrel_removed.tscn" id="2_o8gki"]
 [ext_resource type="PackedScene" uid="uid://cte1t8m17y6qt" path="res://assets/interactions/interaction_area.tscn" id="3_te1gg"]
 
@@ -10,6 +11,8 @@ size = Vector3(1, 0.528809, 1)
 
 [node name="Barrel" type="Node3D"]
 script = ExtResource("1_gvlh5")
+
+[node name="DustParticles" parent="." instance=ExtResource("2_7syto")]
 
 [node name="BarrelComplete" parent="." instance=ExtResource("1_pfbm4")]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx63wguny4bct"]
+[gd_scene load_steps=8 format=3 uid="uid://dx63wguny4bct"]
 
 [ext_resource type="Shader" uid="uid://busq4fwso2c3b" path="res://assets/shaders/floating_particles.tres" id="1_8oqot"]
+[ext_resource type="Script" uid="uid://bi0an36baxbdg" path="res://assets/scripts/dust_particles.gd" id="1_rk4od"]
 [ext_resource type="Texture2D" uid="uid://cllknwujkge30" path="res://assets/textures/dust.png" id="1_wknf4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rk4od"]
@@ -13,12 +14,12 @@ emission_shape_scale = Vector3(0.3, 0.24, 0.3)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 0, 0)
-radial_accel_min = -1.0
-radial_accel_max = 0.999998
+radial_accel_min = -2.0
+radial_accel_max = 2.0
 tangential_accel_min = -1.0
 tangential_accel_max = 0.999998
 damping_max = 0.1
-color = Color(1, 0.828735, 0.523438, 1)
+color = Color(0.742188, 0.553952, 0.218404, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8oqot"]
 transparency = 1
@@ -29,10 +30,13 @@ material = SubResource("StandardMaterial3D_8oqot")
 size = Vector2(0.5, 0.5)
 
 [node name="DustParticles" type="Node3D"]
+script = ExtResource("1_rk4od")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.997219, 0, 0, 0, 0.997219, 0, 0, 0, 0.997219, 0, 0.251796, 0)
 material_override = SubResource("ShaderMaterial_rk4od")
-amount = 20
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_5tesv")
 draw_pass_1 = SubResource("QuadMesh_5tesv")
