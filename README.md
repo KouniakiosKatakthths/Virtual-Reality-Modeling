@@ -38,7 +38,7 @@ The general enviroment with the volumetric fog and the leaf falling
 
 The dust particles of the rocks
 
-![Dust Particles](/image2.png "Dust particles of the moving rocks"")
+![Dust Particles](/image2.png "Dust particles of the moving rocks")
 
 #### Resource List 
 * Poly Haven
