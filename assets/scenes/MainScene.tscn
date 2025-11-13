@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cf6r1qt8a5gvb"]
+[gd_scene load_steps=30 format=3 uid="uid://cf6r1qt8a5gvb"]
 
 [ext_resource type="Material" uid="uid://bf6d7rc164mtp" path="res://assets/materials/forest_leaves.tres" id="1_8kf5t"]
 [ext_resource type="PackedScene" uid="uid://b0h3qo7gpftlo" path="res://assets/prefabs/tree_small.tscn" id="2_i4hrn"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://dmckpi5eaeilg" path="res://assets/scripts/ui.gd" id="21_clwk8"]
 [ext_resource type="FontFile" uid="uid://d116211qx7c7n" path="res://assets/SIGN RON Trial.ttf" id="21_hg2lm"]
 [ext_resource type="AudioStream" uid="uid://crhra1yqi4lt3" path="res://assets/audio clips/ambience_sound.wav" id="23_5dyns"]
+[ext_resource type="AudioStream" uid="uid://cmtsxusdht2d3" path="res://assets/audio clips/wind_breaze.wav" id="24_swljr"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2f3xt"]
 data = PackedVector3Array(-15, -0.125, 11.5672, -15, -0.125, -11.5672, -15, 0.125, -11.5672, 15, -0.125, -11.5672, -15, -0.125, -11.5672, -15, -0.125, 11.5672, -15, 0.125, -11.5672, -15, -0.125, -11.5672, 15, -0.125, -11.5672, -15, 0.125, -11.5672, -15, 0.125, 11.5672, -15, -0.125, 11.5672, -15, -0.125, 11.5672, -15, 0.125, 11.5672, 15, 0.125, 11.5672, 15, 0.125, 11.5672, -15, 0.125, 11.5672, -15, 0.125, -11.5672, -15, -0.125, 11.5672, 15, -0.125, 11.5672, 15, -0.125, -11.5672, 15, 0.125, 11.5672, 15, -0.125, 11.5672, -15, -0.125, 11.5672, 15, -0.125, -11.5672, 15, -0.125, 11.5672, 15, 0.125, 11.5672, 15, -0.125, -11.5672, 15, 0.125, -11.5672, -15, 0.125, -11.5672, -15, 0.125, -11.5672, 15, 0.125, -11.5672, 15, 0.125, 11.5672, 15, 0.125, 11.5672, 15, 0.125, -11.5672, 15, -0.125, -11.5672)
@@ -37,11 +38,10 @@ sky_material = SubResource("PanoramaSkyMaterial_2f3xt")
 [sub_resource type="Environment" id="Environment_oxok2"]
 background_mode = 2
 sky = SubResource("Sky_oxok2")
-volumetric_fog_density = 0.1
-volumetric_fog_albedo = Color(0.0598958, 0.0598958, 0.0598958, 1)
-volumetric_fog_emission = Color(0.158854, 0.158854, 0.158854, 1)
-volumetric_fog_detail_spread = 1.93187
-volumetric_fog_sky_affect = 0.69
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0073
+volumetric_fog_detail_spread = 5.278032
+volumetric_fog_sky_affect = 0.895
 
 [sub_resource type="LabelSettings" id="LabelSettings_hg2lm"]
 font = ExtResource("21_hg2lm")
@@ -148,7 +148,7 @@ transform = Transform3D(0.0182907, 0, -0.00809006, 0, 0.02, 0, 0.00809007, 0, 0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99194, 0.750885, 2.32697)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.735073, -0.178307, 0.65412, 0.0799292, 0.98086, 0.177552, -0.673259, -0.0782305, 0.735256, 0, 0, 0)
+transform = Transform3D(0.7571797, 0.056102738, -0.6507931, 0.07992929, 0.98086023, 0.17755228, 0.64829814, -0.18645644, 0.73820305, 0, 0, 0)
 light_color = Color(1, 0.73173, 0.0963542, 1)
 light_energy = 0.845
 light_indirect_energy = 3.951
@@ -193,6 +193,10 @@ offset_bottom = 47.0
 text = "None"
 label_settings = SubResource("LabelSettings_hg2lm")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ambient_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_5dyns")
+autoplay = true
+
+[node name="wind_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_swljr")
 autoplay = true
