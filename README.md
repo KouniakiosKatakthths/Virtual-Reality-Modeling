@@ -31,6 +31,14 @@ For this lab 3 particle systems have been implemented
 
 The **Falling leafs** is placed on the big tree of the scene, the **Dust particles** are placed on the barrel during the destruction and also during the rock moving.
 
+#### Screenshots
+The general enviroment with the volumetric fog and the leaf falling
+
+![General Enviroment](/image1.png "Screenshot of the general enviroment")
+
+The dust particles of the rocks
+
+![Dust Particles](/image2.png "Dust particles of the moving rocks"")
 
 #### Resource List 
 * Poly Haven
